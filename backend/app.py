@@ -1,7 +1,12 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+
+app = Flask(__name__)
+CORS(app)
 
 # Sample data for demonstration
 corpus = [
@@ -63,28 +68,22 @@ def generate_response(intent_index, entities):
     return response
 
 
-def main():
-    print("Welcome to Chatbot!")
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    data = request.get_json()
+    user_input = data['user_input']
 
-    while True:
-        user_input = input("You: ")
+    # Get intent
+    intent_index = get_intent(user_input)
 
-        # Get intent
-        intent_index = get_intent(user_input)
+    # Extract entities (optional)
+    entities = extract_entities(user_input)
 
-        # Extract entities (optional)
-        entities = extract_entities(user_input)
+    # Generate response
+    response = generate_response(intent_index, entities)
 
-        # Generate response
-        response = generate_response(intent_index, entities)
-
-        print("Chatbot:", response)
-
-        # Exit condition
-        if user_input.lower() == 'exit':
-            print("Goodbye!")
-            break
+    return jsonify({'response': response})
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    app.run(debug=True)
