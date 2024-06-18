@@ -1,17 +1,46 @@
-# Backend
+# Support Chatbot
 
+## Author
+LemonBaba
 
-# Frontend
+## Decision Responsive or Generative Chatbot
+I lost a lot of time in executing training scripts for the generative chatbot. So I decided to make a responsive one.
 
-## Getting Started with Create React App
+## Use Cases
+Support Chat
+E-commerce
+
+## Used Techniques
+| Technique                       | Description                                                                                |
+|---------------------------------|--------------------------------------------------------------------------------------------|
+| flask                           | To create a web server that handles HTTP requests and serves responses to the frontend.    |
+| NLTK (Natural Language Toolkit) | To perform various Natural Language Processing (NLP) tasks                                 |
+| scikit-learn                    | To build and use machine learning models                                                   |
+| joblib                          | To save and load the trained machine learning models                                       |
+| requests                        | To make HTTP requests (if needed) to external APIs or services for additional information. |
+| React                           | To build a dynamic and responsive user interface for the chatbot application.              |
+| CSS                             | To style the frontend of the chatbot                                                       |
+
+## Dataset
+Datasets are found in the ./backend/app.py
+
+## Backend
+
+##### `pip install -r requirements.txt`
+
+##### `python ./backend/app.py`
+
+## Frontend
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Available Scripts
+#### Available Scripts
 
 In the project directory, you can run:
 
-#### `npm start`
+##### `cd ./frontend && npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -19,12 +48,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-#### `npm test`
+##### `cd ./frontend && npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### `npm run build`
+##### `cd ./frontend && npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -34,7 +63,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### `npm run eject`
+##### `cd ./frontend && npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -49,3 +78,5 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+![img.png](img.png)
