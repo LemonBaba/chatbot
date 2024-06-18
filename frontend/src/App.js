@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -8,7 +8,8 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/chatbot', {
+    // Send user input to backend
+    const response = await fetch('http://localhost:5000/chatbot', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -16,20 +17,26 @@ function App() {
       body: JSON.stringify({ user_input: userInput }),
     });
 
+    // Get response from backend
     const data = await response.json();
-    setChatHistory([...chatHistory, { text: userInput, user: true }]);
-    setChatHistory([...chatHistory, { text: data.response, user: false }]);
+
+    // Update chat history with user's message and bot's response
+    setChatHistory([
+      ...chatHistory,
+      { text: userInput, user: true },
+      { text: data.response, user: false },
+    ]);
+
+    // Reset input field
     setUserInput('');
   };
 
   const handleChange = (e) => {
     setUserInput(e.target.value);
   };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
       <h1>Chatbot</h1>
       <div className="chat-container">
         {chatHistory.map((message, index) => (
