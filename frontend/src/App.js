@@ -42,16 +42,16 @@ function App() {
             {message.text}
           </div>
         ))}
+        <form className="form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={userInput}
+            onChange={handleChange}
+            placeholder="Type your message..."
+          />
+          <button type="submit">Send</button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={userInput}
-          onChange={handleChange}
-          placeholder="Type your message..."
-        />
-        <button type="submit">Send</button>
-      </form>
     </div>
   );
 }
