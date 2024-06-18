@@ -17,10 +17,8 @@ function App() {
       body: JSON.stringify({ user_input: userInput }),
     });
 
-    // Get response from backend
     const data = await response.json();
 
-    // Update chat history with user's message and bot's response
     setChatHistory([
       ...chatHistory,
       { text: userInput, user: true },

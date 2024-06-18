@@ -28,6 +28,31 @@
   color: #61dafb;
 }
 
+.chat-container {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.bot-message, .user-message {
+  margin-top: 1rem;
+  color: white;
+  border-radius: 2rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.bot-message {
+  left: 0;
+  text-align: left;
+  background: green;
+}
+
+.user-message {
+  right: 0;
+  text-align: right;
+  background: cornflowerblue;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
