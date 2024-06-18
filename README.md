@@ -78,3 +78,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ##### Screenshot of bot in action
 ![img.png](img.png)
+
+##### Reflection
+This project has taught me the skills of how machine learning works and how it is used.
